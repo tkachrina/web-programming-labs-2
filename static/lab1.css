@@ -1,0 +1,56 @@
+body{
+    background-color: lightpink;
+    color: darkmagenta; 
+    font-family: Arial; 
+    margin: 0px;
+}
+
+header{
+    background: linear-gradient(to right, hotpink, rgb(236, 136, 153),rgb(255, 174, 188),rgb(253, 211, 232)) ;
+    color: rebeccapurple;
+    padding: 10px;
+    font-size: 16pt
+}
+header:hover {
+    color: rgb(251, 255, 0);
+    font-size: 20pt;
+    transition: 600ms 1s
+}
+main{
+  margin: 10px 20px;  
+}
+footer{
+    background: linear-gradient(to right,hotpink, rgb(236, 136, 153),rgb(255, 174, 188),rgb(253, 211, 232)) ;
+    color: rebeccapurple;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: center
+}
+footer:hover {
+    color: rgb(251, 255, 0);
+    font-size: 20pt;
+    transition: 600ms 1s
+}
+a{
+    text-decoration:none;
+    color: chartreuse;
+    text-shadow: 1px 1px 10px rgb(255, 0, 242);
+    transition: 600ms 1s   
+}
+a:visited {
+    color: rgb(175, 11, 93);
+    background-color: green
+}
+
+a:hover {
+    color: rgba(255, 0, 179, 0.705);
+    text-decoration: underline;
+    background-color: white;
+    font-weight: bold;
+    transition: 900ms 0.3s;
+}
+
+a:active{
+    color: rgb(182, 83, 83);
+    background-color: rgb(66, 252, 66);
+}
