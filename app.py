@@ -1,4 +1,4 @@
-from flask import Flask, redirect
+from flask import Flask, redirect, url_for
 app = Flask (__name__)
 
 @app.route("/")
@@ -27,7 +27,10 @@ def menu():
 
         <h1>web-сервер на flask</h1>
 
-        <footer>
+        
+        <a href="/lab1">Первая лабораторная работа</a>
+
+        <footer style="margin-top:20px;">
             &copy; Ткаченко Екатерина, ФБИ-13, 3 курс, 2023
         </footer>
     </body>
@@ -36,26 +39,58 @@ def menu():
 @app.route("/lab1")
 def lab1():
         return """
-<!doctype html>
-<html>
-    <head>
-        <title> Ткаченко Екатерина Игоревна, лабораторная 1 </title>
-    </head>
-    <body>
-        <header>
-            НГТУ, ФБ, Лабораторная работа 1
-        </header>
+        <!doctype html>
+        <html>
+            <head>
+                <title> Ткаченко Екатерина Игоревна, лабораторная 1 </title>
+            </head>
+            <body>
+            <header>
+                НГТУ, ФБ, Лабораторная работа 1
+            </header>
 
-        <h1>web-сервер на flask</h1>
-            Flask — фреймворк для создания веб-приложений на языке 
-            программирования Python, использующий набор инструментов 
-            Werkzeug, а также шаблонизатор Jinja2. Относится к категории так 
-            называемых микрофреймворков — минималистичных каркасов 
-            веб-приложений, сознательно предоставляющих лишь самые базовые возможности 
-        
-        <footer>
-            &copy; Ткаченко Екатерина, ФБИ-13, 3 курс, 2023
+            <h1>web-сервер на flask</h1>
+
+            <p>
+                Flask — фреймворк для создания веб-приложений на языке 
+                программирования Python, использующий набор инструментов 
+                Werkzeug, а также шаблонизатор Jinja2. Относится к категории так 
+                называемых микрофреймворков — минималистичных каркасов 
+                веб-приложений, сознательно предоставляющих лишь самые базовые возможности 
+            </p>
+
+            <a href="/menu" >Меню</a>
+            
+            <ol>
+            <h2>Реализованные роуты</h2>
+            </ol>
+            
+            <ol>
+            <li><a href="/lab1/oak">Дуб</a></li>
+
+            </ol>
+
+            <footer style="margin-top:20px;">
+                &copy; Ткаченко Екатерина, ФБИ-13, 3 курс, 2023
+            </footer>
+            </body>
+        </html>    
+        """
+@app.route("/lab1/oak/")
+def oak ():
+  return '''
+    <!doctype html>
+    <header>
+      НГТУ, ФБ, WEB- программирование, часть 2.
+    </header>
+    <html>
+      <body>
+        <h1>Дуб</h1>
+        <img src="''' + url_for('static', filename='oak.png') + '''">
+        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='lab1.css') + '''" />
+        <footer style="margin-top:20px;">
+                &copy; Ткаченко Екатерина, ФБИ-13, 3 курс, 2023
         </footer>
-    </body>
-</html>    
-"""
+      </body>
+    </html>
+'''
