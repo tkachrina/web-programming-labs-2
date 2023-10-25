@@ -193,4 +193,7 @@ def colors():
 @app.route('/lab2/example')
 def example():
     name = 'Ткаченко Екатерина'
-    return render_template('example.html' , name=name)
+    grop_name = 'ФБИ-13'
+    lab_numb = '2'
+    cour_numb = '3'
+    return render_template('example.html' , name=name, grop_name=grop_name, lab_numb=lab_numb, cour_numb=cour_numb)
