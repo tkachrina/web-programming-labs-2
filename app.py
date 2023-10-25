@@ -28,6 +28,9 @@ def menu():
             <li> 
                 <a href="/lab1" target="_blank"> Лабораторная работа 1 </a> 
             </li> 
+            <li> 
+                <a href="/lab2/example" target="_blank"> Лабораторная работа 2 </a> 
+            </li> 
         </ol> 
 
         <footer style="margin-top:20px;">
@@ -189,4 +192,5 @@ def colors():
 
 @app.route('/lab2/example')
 def example():
-    return render_template('example.html')
+    name = 'Ткаченко Екатерина'
+    return render_template('example.html' , name=name)
