@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 app = Flask (__name__)
 
 @app.route("/")
@@ -8,16 +8,21 @@ def start():
 
 @app.route("/menu")
 def menu():
-      return """ 
+      return ''' 
 <!doctype html>
 <html>
     <head>
         <title> НГТУ, ФБ, Лабораторные работы </title>
     </head>
-    <body>
-        <header>
+    
+    <header>
             НГТУ, ФБ, WEB- программирование, часть 2. Список лабораторных, меню 
         </header>
+
+    <body>
+
+        <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='lab1.css') + '''" />
+        <h1>web-сервер на flask</h1>
 
         <ol> 
             <li> 
@@ -25,20 +30,15 @@ def menu():
             </li> 
         </ol> 
 
-        <h1>web-сервер на flask</h1>
-
-        
-        <a href="/lab1">Первая лабораторная работа</a>
-
         <footer style="margin-top:20px;">
             &copy; Ткаченко Екатерина, ФБИ-13, 3 курс, 2023
         </footer>
     </body>
 </html>   
-"""      
+'''     
 @app.route("/lab1")
 def lab1():
-        return """
+        return '''
         <!doctype html>
         <html>
             <head>
@@ -48,6 +48,8 @@ def lab1():
             <header>
                 НГТУ, ФБ, Лабораторная работа 1
             </header>
+
+            <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='lab1.css') + '''" />
 
             <h1>web-сервер на flask</h1>
 
@@ -78,7 +80,7 @@ def lab1():
             </footer>
             </body>
         </html>    
-        """
+        '''
 @app.route("/lab1/oak/")
 def oak ():
   return '''
@@ -184,3 +186,7 @@ def colors():
     </body>
 </html>
 '''
+
+@app.route('/lab2/example')
+def example():
+    return render_template('example.html')
