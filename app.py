@@ -196,4 +196,4 @@ def example():
     grop_name = 'ФБИ-13'
     lab_numb = '2'
     cour_numb = '3'
-    return render_template('example.html' , name=name, grop_name=grop_name, lab_numb=lab_numb, cour_numb=cour_numb)
+    return render_template('example.html', name=name, grop_name=grop_name, lab_numb=lab_numb, cour_numb=cour_numb)
