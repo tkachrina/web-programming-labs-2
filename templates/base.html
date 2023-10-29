@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ткаченко Екатерина. {% block lab%}{% endblock %} Лабораторная работа 2</title>
+    <link rel="stylesheet" hfer="{{ url_for('static, filename='main.css') }}">
+</head>
+<body>
+    <header>
+        WEB-программирование, часть 2. {{ selt.lab() }}
+    </header>
+
+    <main>
+    {% block main %}
+        <h1>Шаблоны</h1>
+        <div>Тема лабораторной - шаблоны. Список сделанных страниц:</div>
+        <ol>
+            <li>
+                <a href="/lab2/example">example</a>
+            </li>
+        </ol>
+    {% endblock %}
+    </main>
+
+    <footer>
+        &copy; Ткаченко Екатерина, ФБИ-13, 3 курс, 2023
+    </footer>
+</body>
+</html>
