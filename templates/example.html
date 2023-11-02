@@ -12,15 +12,27 @@
     </header>
 
     <main>
+        <h1><a href="/menu"> Меню </a> <br></h1>
+        <h1><a href="/lab2/">Лабораторная работа №2</a></h1>
+
         5 + 2 = {{ 5 + 2 }}<br>
         11 * 28 = {{ 11 * 28}}<br>
         8452 / 793 = {{ 8452 / 793}}<br>
         45<sup>8</sup> = {{ 45**8 }}<br>
+        
         <ul>
         {% for f in fruits %}
         <li>{{ f.name }}: {{ f.price }} &#x20bd;</li>
         {% endfor %}
+        </ul>
+        
         <ul>
+        <h1>Список моих любимых книг</h1>
+        {% for b in books %}
+        <li>{{ b.author }}: {{ b.booktitle }}: {{ b.genre }}: {{ b.numpages }} страниц</li>
+        {% endfor %}
+        </ul>
+
     </main>
 
     <footer>

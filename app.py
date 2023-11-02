@@ -29,7 +29,7 @@ def menu():
                 <a href="/lab1" target="_blank"> Лабораторная работа 1 </a> 
             </li> 
             <li> 
-                <a href="/lab2/example" target="_blank"> Лабораторная работа 2 </a> 
+                <a href="/lab2/" target="_blank"> Лабораторная работа 2 </a> 
             </li> 
         </ol> 
 
@@ -183,7 +183,7 @@ def colors():
             Эти цвета помогают мозгу сильнее воспринимать температуру.</p> 
         <img src="''' + url_for('static', filename='colors.jpeg') + '''">
         <link rel="stylesheet" type="text/css" href="''' + url_for('static', filename='lab1.css') + '''" />
-        <footer>
+        <footer style="margin-top:20px;">
             &copy; Ткаченко Екатерина, ФБИ-13, 3 курс, 2023
         </footer>
     </body>
@@ -204,9 +204,22 @@ def example():
         {'name': 'манго', 'price': 321}
     ]
     return render_template('example.html',
-                           name=name, grop_name=grop_name,
-                           lab_numb=lab_numb, cour_numb=cour_numb, fruits=fruits)
+                           name=name, grop_name=grop_name,lab_numb=lab_numb, 
+                           cour_numb=cour_numb, fruits=fruits, books=books )
 
+books = [
+        {'booktitle': 'Евгений Онегин',  'author' : 'Александр Пушкин', 'genre'  : 'Роман',  'numpages' : '456'},
+        {'booktitle' : 'Мастер и Маргарита', 'author' : 'Михаил Булгаков', 'genre' : 'Любовный роман', 'numpages' : 480},
+        {'booktitle' : 'Преступление и наказание', 'author' : 'Федор Достоевский', 'genre' : 'Роман', 'numpages' : 608},    
+        {'booktitle' : 'Война и мир. Том 4', 'author' : 'Лев Толстой', 'genre' : 'Роман', 'numpages' : 416},   
+        {'booktitle' : 'Маленький принц', 'author' : ' Антуан де Сент-Экзюпери', 'genre' : 'Сказка', 'numpages' : 128},   
+        {'booktitle' : 'Герой нашего времени', 'author' : 'Михаил Лермонтов', 'genre' : 'Роман', 'numpages' : 288},   
+        {'booktitle' : 'Двенадцать стульев', 'author' : 'Илья Ильф, Евгений Петров', 'genre' : 'Роман', 'numpages' : 448},
+        {'booktitle' : '1984', 'author' : 'Джордж Оруэлл', 'genre' : 'Научная фантастика', 'numpages' : 320},
+        {'booktitle' : 'Сто лет одиночества', 'author' : 'Габриэль Маркес', 'genre' : 'Роман', 'numpages' : 544},
+        {'booktitle' : 'Гарри Поттер и Кубок огня', 'author' : 'Джоан Роулинг', 'genre' : 'Фэнтази', 'numpages' : 608},
+    ]
 @app.route ('/lab2/')
 def lab2():
     return render_template('lab2.html')
+
