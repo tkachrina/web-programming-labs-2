@@ -223,3 +223,6 @@ books = [
 def lab2():
     return render_template('lab2.html')
 
+@app.route ('/lab2/top5myfood')
+def favoritefood():
+    return render_template('favoritefood.html')
