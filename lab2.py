@@ -18,8 +18,6 @@ def example():
     return render_template('example.html',
                            name=name, grop_name=grop_name,lab_numb=lab_numb, 
                            cour_numb=cour_numb, fruits=fruits, books=books )
-
-
 books = [
         {'booktitle': 'Евгений Онегин',  'author' : 'Александр Пушкин', 'genre'  : 'Роман',  'numpages' : '456'},
         {'booktitle' : 'Мастер и Маргарита', 'author' : 'Михаил Булгаков', 'genre' : 'Любовный роман', 'numpages' : 480},
@@ -32,6 +30,8 @@ books = [
         {'booktitle' : 'Сто лет одиночества', 'author' : 'Габриэль Маркес', 'genre' : 'Роман', 'numpages' : 544},
         {'booktitle' : 'Гарри Поттер и Кубок огня', 'author' : 'Джоан Роулинг', 'genre' : 'Фэнтази', 'numpages' : 608},
     ]
+
+
 @lab2.route ('/lab2/')
 def lab():
     return render_template('lab2.html')
