@@ -50,3 +50,86 @@ def pay():
 @lab3.route('/lab3/success')
 def success():
     return render_template('success.html')
+
+@lab3.route('/lab3/zd_order')
+def zd_order():
+    errors = {}
+    user = None
+    return render_template('zd_order.html', user=user, errors=errors)
+
+
+@lab3.route('/lab3/zd_pay')
+def zd_pay():
+    errors = {}
+
+    fio = request.args.get('fio')
+    ticketType = request.args.get('ticket-type')
+    polkaType = request.args.get('polka')
+    withLuggage = request.args.get('with_luggage')
+    age = request.args.get('age')
+    startPoint = request.args.get('start-point')
+    endPoint = request.args.get('end-point')
+    date = request.args.get('date')
+
+    user = ZDModel(fio, ticketType, polkaType, withLuggage, age, startPoint, endPoint, date)
+
+    if fio == '':
+        errors['fio'] = "Заполните поле!"
+
+    if ticketType is None:
+        errors['ticketType'] = "Заполните поле!"
+
+    if polkaType is None:
+        errors['polkaType'] = "Заполните поле!"
+
+    if withLuggage is None:
+        errors['withLuggage'] = "Заполни поле!"
+
+    if age == '':
+        errors['age'] = "Заполни поле!"
+    elif int(age) > 120 or int(age) < 1:
+        errors['age'] = "Укажи нормальный возраст!"
+
+    if date == '':
+        errors['date'] = "Заполни поле!"
+
+    if len(errors) > 0:
+        return render_template('zd_order.html', user=user, errors=errors)
+
+    return render_template('zd_success.html', user=user)
+
+
+@lab3.route('/lab3/zd_success')
+def zd_success():
+    fio = request.args.get('fio')
+    ticketType = request.args.get('ticket-type')
+    polkaType = request.args.get('polka')
+    withLuggage = request.args.get('with_luggage')
+    age = request.args.get('age')
+    startPoint = request.args.get('start-point')
+    endPoint = request.args.get('end-point')
+    date = request.args.get('date')
+
+    user = ZDModel(fio, ticketType, polkaType, withLuggage, age, startPoint, endPoint, date)
+
+    return render_template('zd_success.html', user=user) 
+
+class ZDModel:
+    fio = ""
+    ticketType = ""
+    polkaType = ""
+    withLuggage = ""
+    age = ""
+    startPoint = ""
+    endPoint = ""
+    date = ""
+
+    def __init__(self, fio, ticketType, polkaType, withLuggage, age, startPoint, endPoint, date):
+        self.fio = fio
+        self.ticketType = ticketType
+        self.polkaType = polkaType
+        self.withLuggage = withLuggage
+        self.age = age
+        self.startPoint = startPoint
+        self.endPoint = endPoint
+        self.date = date

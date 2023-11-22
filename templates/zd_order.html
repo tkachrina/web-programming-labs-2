@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа №3{% endblock %}
+
+{% block main %}
+
+    <h1>Покупка ЖД билета</h1>
+
+    <form action="/lab3/zd_pay">
+        <div>Сведения о ЖД билете:</div>
+
+        <br>
+
+        <div>Введите ФИО:</div>
+        <div style="color: darkred; font-weight: bold;">{{ errors.fio }}</div>
+        <label>
+            <input type="text" name="fio" value="{{ user.fio }}">
+        </label>
+
+        <br><br>
+
+        <div>Выберите тип билета</div>
+        <div style="color: darkred; font-weight: bold;">{{ errors.ticketType }}</div>
+        <label>
+            <input type="radio" value="adult" name="ticket-type"  {{ user.ticketType == 'adult' and 'checked' }}> Взрослый
+            <input type="radio" value="child" name="ticket-type" {{ user.ticketType == 'child' and 'checked' }}> Детский
+        </label>
+
+        <br><br>
+
+        <div>Выберите полку:</div>
+        <div style="color: darkred; font-weight: bold;">{{ errors.polkaType }}</div>
+        <label>
+            <input type="radio" value="bottom" name="polka" {{ user.polkaType == 'bottom' and 'checked' }}> Нижняя полка
+            <input type="radio" value="top" name="polka" {{ user.polkaType == 'top' and 'checked' }}> Верхняя полка
+            <input type="radio" value="top-side" name="polka" {{ user.polkaType == 'top-side' and 'checked' }}> Верхняя боковая полка
+            <input type="radio" value="bottom-side" name="polka" {{ user.polkaType == 'bottom-side' and 'checked' }}> Нижняя боковая полка
+        </label>
+
+        <br><br>
+
+        <div>С багажом едем?:</div>
+        <div style="color: darkred; font-weight: bold;">{{ errors.withLuggage }}</div>
+        <label>
+            <input type="radio" value="yes" name="with_luggage" {{ user.withLuggage == 'yes' and 'checked' }}> Да
+            <input type="radio" value="no" name="with_luggage" {{ user.withLuggage == 'no' and 'checked' }}> Нет
+        </label>
+
+        <br><br>
+
+        <div>Введите свой возраст:</div>
+        <div style="color: darkred; font-weight: bold;">{{ errors.age }}</div>
+        <label>
+            <input type="text" name="age" size="3" value="{{ user.age or '' }}">
+        </label>
+
+        <br><br>
+
+        <label for="start-point">Выберите пункт выезда:</label>
+        <select id="start-point" name="start-point">
+            <option value="Moscow">Москва</option>
+            <option value="Piterburg">Питербург</option>
+            <option value="Nsk">Новосибирск</option>
+            <option value="Krasnoyarsk">Красноярск</option>
+        </select>
+
+        <br><br>
+
+        <label for="end-point">Выберите пункт назначения:</label>
+        <select id="end-point" name="end-point">
+            <option value="Kaliningrad">Калининград</option>
+            <option value="Yakutsk">Якутск</option>
+            <option value="Ekaterinburg">Екатеринбург</option>
+            <option value="Kazan">Казань</option>
+        </select>
+
+        <br><br>
+
+        <div>Укажите дату:</div>
+        <div style="color: darkred; font-weight: bold;">{{ errors.date }}</div>
+        <label>
+            <input type="date" name="date" value="{{ user.date or '' }}">
+        </label>
+
+        <br><br>
+
+        <h2>Оплата</h2>
+        <div>Номер бансковской карты:</div>
+        <label>
+            <input type="text" name="card" pattern="\d{16}">
+        </label>
+
+        <div>Имя держателя карты:</div>
+        <label>
+            <input type="text" name="name">
+        </label>
+
+        <div>Номер CVV:</div>
+        <label>
+            <input type="text" name="cvv" size="3" pattern="\d{3}">
+        </label>
+
+        <div>
+            <button type="submit">Заказать</button>
+        </div>
+    </form>
+
+{% endblock %}
