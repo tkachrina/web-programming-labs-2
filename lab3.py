@@ -44,6 +44,8 @@ def pay():
         price += 30
     if request.args.get('sugar') == 'on':
         price += 10
+    if request.args.get('syrup') == 'on':
+        price += 10
 
     return render_template('pay.html', user=user, price=price)
 
