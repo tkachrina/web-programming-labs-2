@@ -34,7 +34,10 @@ def menu():
             </li>
             <li> 
                 <a href="/lab3/" target="_blank"> Лабораторная работа 3 </a> 
-            </li> 
+            </li>
+            <li> 
+                <a href="/lab4/" target="_blank"> Лабораторная работа 4 </a> 
+            </li>  
         </ol> 
 
         <footer style="margin-top:20px;">
