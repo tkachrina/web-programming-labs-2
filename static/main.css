@@ -40,6 +40,7 @@ a{
     text-decoration:none;
     color: chartreuse;
     text-shadow: 1px 1px 10px rgb(255, 0, 242);
+    font-weight: bold;
     transition: 600ms 1s   
 }
 a:visited {
