@@ -6,18 +6,29 @@ def lab():
     return render_template('lab4.html')  
 
 
-@lab4.route('/lab4/login', methods= ['GET','POST'])
-def login():
-    if request.method == 'GET':
-        return render_template('login.html')  
-    
-    username = request.form.get('username')
-    password = request.form.get('password')
-    if username == 'Alex' and password == '123':
-        return render_template('success.html',username=username)
-    
+@lab4.route('/lab4/login', methods = ['GET','POST']) 
+def login(): 
+    error_username = None 
+    error_password = None 
+     
+    if request.method == 'GET':  
+        return render_template('login.html') 
+ 
+    username = request.form.get('username') 
+    password = request.form.get('password') 
+     
+    if username == 'alex' and password == '123': 
+        return render_template('success1.html', username=username) 
+     
+    if username == '': 
+        error_username = "Не введен логин" 
+ 
+    if password == '': 
+        error_password = "Не введен пароль" 
+     
     error = 'Неверные логин и/или пароль' 
-    return render_template ('login.html', error=error, username=username,password=password)
+    return render_template('login.html', error = error, error_username = error_username, 
+                            error_password = error_password)
 
 @lab4.route('/lab4/fridge', methods= ['GET','POST'])
 def fridge():
@@ -103,3 +114,6 @@ def cookies():
 
     return '', 303, headers
 
+@lab4.route('/lab4/success1')
+def success1():
+    return render_template('success1.html')
