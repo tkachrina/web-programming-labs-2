@@ -112,7 +112,7 @@ def cookies():
         'Location': '/lab4/cookies'
     }
 
-    return '', 303, headers
+    return '', 303, headers #303 - перенаправление на новый URI, запрашивать только методом GET.#
 
 @lab4.route('/lab4/success1')
 def success1():
