@@ -1,0 +1,30 @@
+{% extends "base5.html" %}
+
+{% block lab %}Лабораторная работа 6{% endblock %}
+
+{% block main %}
+    
+    <div style="margin-top: 10px;display:flex;justify-content: space-between;">
+        <h1><a href="http://127.0.0.1:5000/lab6">База знаний</a></h1>
+        <a href="http://127.0.0.1:5000/lab6/articles">Просмотреть заметки</a>
+        <a href="http://127.0.0.1:5000/lab6/new_article" style="margin-left: -40px;">Создать заметку</a>
+        <a href="http://127.0.0.1:5000/lab6/login" class="log">Логин</a>
+        <a href="http://127.0.0.1:5000/lab6/register" class="reg">Регистрация</a>
+        <p>{{username}}</p>
+    </div>
+{% endblock %}
+
+{% block menu %}
+    <a href="http://127.0.0.1:5000/menu" target="_blank">Меню</a>
+
+    <h1>Опубликованные статьи</h1> 
+    <ul>
+        {% for article in public_articles %}
+            <h2 style="color:mediumvioletred;">Заметка {{article.username}}</h2>
+            <h3>{{ article.title }}</h3>
+            {% for paragraph in article.article_text.splitlines() %}
+                <p>{{ paragraph }}</p>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block lab %} Лабораторная работа {{numLab}}{% endblock %}
+
+{% block main %}
+
+<div style="margin-top: 10px;display:flex;justify-content: space-between;">
+<h1><a href="http://127.0.0.1:5000/lab5">База знаний</a></h1>
+<a href="http://127.0.0.1:5000/lab5/view_article">Просмотреть заметки</a>
+<a href="http://127.0.0.1:5000/lab5/new_article" style="margin-left: -40px;">Создать заметку</a>
+<a href="http://127.0.0.1:5000/lab5/login" class="log">Логин</a>
+<a href="http://127.0.0.1:5000/lab5/register" class="reg">Регистрация</a>
+<p>{{username}}</p>
+</div>
+
+    <hr size="1">
+
+    <form method="POST" > 
+        <h1 style="text-align: center;">Страница регистрации</h1>
+
+        <div class="pole">
+            <label style="color:darkslategrey; 
+                            
+                            font-size: small;" for="username">Логин</label> <br>               
+            <input style="width: 200px; 
+                            outline: none; 
+                            border: none;" 
+                    type="text" name="username" placeholder="username" > 
+        </div>
+
+        <div class="pole" style="margin-bottom: 10px; ">
+            <label style="color:darkslategrey; 
+                        text-align: left; 
+                        font-size: small;" for="password">Пароль</label>
+            <input style="width: 200px; 
+                            outline: none; 
+                            border: none;" 
+                type="text" name="password" placeholder="password"> 
+        </div>
+        
+        <div style="display: block; text-align: center;">
+            <button  style="font-size: large;" type="submit"> 3арегистрироваться </button>
+        </div>
+        <div style="display: block; text-align: center; margin-top: 10px;">
+            {% for error in errors %}
+            <p class="error">{{ error }}</p>
+        {% endfor %}
+        </div>
+        
+    </form>
+
+{% endblock %}

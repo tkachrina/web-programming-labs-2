@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block lab %}Лабораторная работа 5{% endblock %}
+
+{% block main %}
+    
+    <div style="margin-top: 10px;display:flex;justify-content: space-between;">
+        <h1><a href="http://127.0.0.1:5000/lab5">База знаний</a></h1>
+        <a href="http://127.0.0.1:5000/lab5/view_article">Просмотреть заметки</a>
+        <a href="http://127.0.0.1:5000/lab5/new_article" style="margin-left: -40px;">Создать заметку</a>
+        <a href="http://127.0.0.1:5000/lab5/login" class="log">Логин</a>
+        <a href="http://127.0.0.1:5000/lab5/register" class="reg">Регистрация</a>
+        <p>{{username}}</p>
+    </div>
+{% endblock %}
+
+{% block menu %}
+    <a href="http://127.0.0.1:5000/menu" target="_blank">Меню</a>
+{% endblock %}
