@@ -1,0 +1,39 @@
+{% extends "base5.html" %}
+
+{% block lab %}Лабораторная работа 6{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="{{ url_for('static', filename='lab5.css')}}">
+    <div class="line">
+        <div class="header-title">
+            База знаний
+        </div>
+        <div class="header-url-zam">
+            <a href="/lab6/articles">Посмотреть заметки</a>
+        </div>
+
+        <div class="header-url-cre">
+            <a href="/lab6/newarticle">Создать заметки</a>
+        </div>
+        
+        <form action="/lab6/login" class="button_log">
+            <button class="button1" type="submit">Логин</button>
+        </form>
+
+        <form action="/lab6/register" class="button_reg">
+            <button class="button1" type="submit">Регистрация</button>
+        </form>
+
+        <form action="/lab6/logout" class="button_exit">
+            <button class="button1" type="submit">Выйти</button>
+        </form>
+
+        {% if current_user.username %}
+            <div>
+                {{ current_user.username}}
+            </div>
+        {% else %}
+            <div class="username">Anon</div>
+        {% endif %}
+    </div>
+{% endblock %}

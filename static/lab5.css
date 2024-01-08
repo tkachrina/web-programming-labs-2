@@ -1,0 +1,97 @@
+/* Общие стили header */
+.line {
+    background:linear-gradient(to bottom right,rgb(209, 135, 193), rgb(172, 102, 134), rgb(114, 38, 38));
+    padding: 20px;
+    height: 55px;
+    
+  }
+  
+  /* Стили для надписей */
+  .header-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    width: 600px;
+  }
+  
+  .header-subtitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  /* Стиль для кнопок */
+  .header-url-zam {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 10px;
+    width: 180px;
+    border: none;
+    color: #eeafe9;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .header-url:hover {
+    background-color: #ddd;
+  }
+
+  .header-url-cre {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 10px;
+
+    border: none;
+    color: #006946;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    width: 180px;
+  }
+  
+  .header-url-cre:hover {
+    background-color:  rgb(3, 3, 2);
+  }
+  
+  /* Стиль для вывода имени пользователя */
+  .header-username {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+.head_menu {
+    padding: 0px;
+    margin: 0px;
+}
+
+.button_log {
+    display: inline-flex;
+}
+
+.button_reg {
+    display: inline-flex;
+    width: 100px;
+}
+
+.button1 {
+    display: inline-flex;
+    border-radius: 13px;
+    background-color: rgb(255, 154, 204);
+}
+
+.username {
+    display: inline-flex;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(35, 35, 35);
+}
+
+body {
+    margin: 0px;
+    background-color: lightpink;
+    color: darkmagenta; 
+    font-family: Arial; 
+    padding: 0px;
+}
