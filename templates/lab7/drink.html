@@ -1,35 +1,65 @@
+{% extends "base.html" %}
 
-{% block lab %}Лабораторная работа 7.{% endblock %}
+{% block lab %}Лабораторная работа 7{% endblock %}
 
 {% block script %}
 <script src="{{ url_for('static', filename='lab7/drink.js') }}"></script>
-{% endblock%}
+{% endblock %}
 
 {% block main %}
-
+   
     <h1>Заказ напитка</h1>
 
-    <div>Напиток:</div>
+    <h2>Напиток:</h2>
     <label>
-        <input type="radio" value="cofee" name="drink" checked> кофе
-    </label> 
+        <input type="radio" value="cofee" name="drink" checked>Кофе -120 рублей
+    </label><br>
     <label>
-        <input type="radio" value="black-tea" name="drink"> чёрный чай
-    </label> 
+        <input type="radio" value="black-tea" name="drink">Черный чай - 80 рублей
+    </label><br>
     <label>
-        <input type="radio" value="green-tea" name="drink"> зеленый чай
-    </label> 
-
-    <div>Добавки:</div>
-    <label>
-        <input type="checkbox"  name="milk" checked> молоко
+        <input type="radio" value="green-tea" name="drink">Зеленый чай - 70 рублей
     </label>
+
+    <h2>Добавки:</h2>
     <label>
-        <input type="checkbox"  name="sugar" checked> сахар
+        <input type="checkbox" name="milk">Молоко - 30 рублей
+    </label><br>
+    <label>
+        <input type="checkbox" name="sugar">Сахар - 10 рублей
     </label>
 
     <div>
-        <button type="button">Заказать</button>
+        <button onclick="getPrice()">Рассчитать цену</button>
     </div>
-</form>
-{% endblock %} 
+
+    
+
+    <div id="pay" style="display: none;">
+        <div id="price"></div>
+        <div>Номер банковской карты:</div>
+        <label>
+            <input type="text" name="card_num">
+        </label>
+
+        <div>Имя держателя карты:</div>
+        <label>
+            <input type="text" name="name">
+        </label>
+
+        <div>Номер CVV:</div>
+        <label>
+            <input type="text" name="cvv" size="3">
+        </label>
+
+        <div>
+            <button onclick="pay()">Оплатить</button>
+            <button onclick="refund()">Отмена оплаты</button>
+            
+        </div>
+    </div>
+    <div id="error"></div>
+    <div id="result"></div>
+    <div id="errorr"></div>
+    <div id="resultt"></div>
+{% endblock %}
