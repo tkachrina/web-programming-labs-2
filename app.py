@@ -9,6 +9,7 @@ from Db import db
 from flask_login import LoginManager
 from Db.models import users
 from lab7 import lab7
+from lab8 import lab8
 
 app = Flask (__name__)
 app.register_blueprint(lab1)
@@ -18,12 +19,13 @@ app.register_blueprint(lab4)
 app.register_blueprint(lab5)
 app.register_blueprint(lab6)
 app.register_blueprint(lab7)
+app.register_blueprint(lab8)
 
 app.secret_key = 'SuPeRSeCrEtKeY_1234567890'
-user_db = 'valerie_knowledge_base'
+user_db = ''
 host_ip = '127.0.0.1'
 host_port = '5432'
-database_name = 'knowledge_base_orm'
+database_name = ''
 password = '123'
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://{user_db}:{password}@{host_ip}:{host_port}/{database_name}'
